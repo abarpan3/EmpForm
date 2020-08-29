@@ -1,0 +1,31 @@
+<div class="alert alert-primary">
+    <h2>Employee Form</h2>
+</div>
+
+<!--This indicates we are using a Template Driven Form
+    All our form inputs are stored in the "#empForm" object
+    "#empForm": is a template object holding all the attributes 
+    empForm is user defined name , but ngForm  -->
+<form #empForm="ngForm" (ngSubmit)="showvalue(empForm)">
+    <div class="form-group" >
+        <label>Employee Id</label>
+        <input type="text" class="form-control" name="empid"  [(ngModel)]="empForm.empid" placeholder="Enter your ID:">
+    </div>
+
+    <div class="form-group">
+        <label>Employee Name</label>
+        <input type="text" class="form-control" name="empname"  [(ngModel)]="empForm.empname" placeholder="Enter your name">
+    </div>
+
+    <div class="form-group">
+        <label>Employee Salary </label>
+        <input type="text" class="form-control" name="empsal" [(ngModel)]="empForm.empsal" placeholder="Enter your salary">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+<!--JSON ;  Displayed as an object type ; Key-Value Pairs displayed;
+    Key: name & value: empid,empname,empsal properties in the .ts class -->
+{{empForm.value | json}}
